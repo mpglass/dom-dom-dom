@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     
     let colorArray = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
-    let number = 0
+    let number = 1
     
     let container = document.createElement('main')
     container.className = 'container';
@@ -31,14 +31,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
         squareDiv.id = number++
         squareBlock.append(squareDiv);
         let squareText = document.createTextNode(number)
-        squareDiv.append(squareText)
+       
         squareDiv.addEventListener('click', function () {
-            let randomIndex = Math.floor(Math.random()*colorArray.length)
-            squareDiv.style.backgroundColor = colorArray[randomIndex]
+           let randomIndex = Math.floor(Math.random()*colorArray.length)
+           squareDiv.style.backgroundColor = colorArray[randomIndex]
         })
-        
-       // squareDiv.addEventListener('onmouseover', function(){})
-    });
+        squareDiv.onmouseover = function (){
+            document.getElementById(squareDiv.id).innerHTML = (squareDiv.id);
+        };
+        squareDiv.onmouseout = function (){
+            document.getElementById(squareDiv.id).innerHTML = ('')
+        };
+ 
+    })
 
 
 });
