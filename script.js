@@ -1,14 +1,17 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-    console.log('DOM fully loaded and parsed');
-
+    
+    let colorArray = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
+    let number = 0
+    
     let container = document.createElement('main')
     container.className = 'container';
+    
 
     let row = document.createElement('section');
     row.className = 'row justify-content-center my-2';
 
     let buttonAddSqr = document.createElement('button');
-    buttonAddSqr.className = 'btn.btn-primary m-2';
+    buttonAddSqr.className = 'btn btn-primary m-2';
     buttonAddSqr.textContent = 'Add Square';
 
 
@@ -16,17 +19,27 @@ document.addEventListener('DOMContentLoaded', (event) => {
     container.appendChild(row);
     document.body.appendChild(container);
 
-    let squareBlock = document.createElement('block');
-    squareBlock.className = 'display-flex justifyContent-center flexWrap-wrap';
+    let squareBlock = document.createElement('div');
+    squareBlock.className = 'd-flex justify-content-center flex-wrap';
     container.appendChild(squareBlock);
 
-
-
-    document.querySelector('button').addEventListener('click', function () {
+    
+    
+    buttonAddSqr.addEventListener('click', function () {
         let squareDiv = document.createElement('div');
-        squareDiv.className = 'square'
-        document.querySelector('block').append(squareDiv);
+        squareDiv.className = 'square';
+        squareDiv.id = number++
+        squareBlock.append(squareDiv);
+        let squareText = document.createTextNode(number)
+        squareDiv.append(squareText)
+        squareDiv.addEventListener('click', function () {
+            let randomIndex = Math.floor(Math.random()*colorArray.length)
+            squareDiv.style.backgroundColor = colorArray[randomIndex]
+        })
+        
+       // squareDiv.addEventListener('onmouseover', function(){})
     });
+
 
 });
 
