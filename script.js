@@ -1,7 +1,10 @@
-let container = document.createElement ('main')
+document.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+
+let container = document.createElement('main')
 container.className = 'container';
 
-let row = document.createElement ('section');
+let row = document.createElement('section');
 row.className = 'row justify-content-center my-2';
 
 let buttonAddSqr = document.createElement('button');
@@ -11,4 +14,6 @@ buttonAddSqr.textContent = 'Add Square';
 row.appendChild(buttonAddSqr); 
 container.appendChild(row); 
 document.body.appendChild(container);
+
+});
 
